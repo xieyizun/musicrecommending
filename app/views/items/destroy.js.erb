@@ -1,0 +1,3 @@
+$("#show_items").html("<%= escape_javascript(render current_order.items) %>")
+$("#order_cost").html("<%= current_order.total_cost %>")
+$("#show_orders").html("<%= escape_javascript(render current_buyer.orders) %>")

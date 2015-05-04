@@ -1,0 +1,43 @@
+<table  class="table">
+	<caption >Song List: <%= order.id %>
+	   | Status: <%= order.status %> | 
+		<% if order.status == "UnAdded"%>
+			<span id="paynow" style="text-shadow: black 5px 3px 3px; color:rgb(212, 106, 64);"> 
+				<% if order.items.count > 0 %>
+					<%= link_to "Add to my music", new_payment_path%>
+				<% end %>
+			</span>
+		<% end %>
+	</caption>
+	<thread>
+		<tr>
+			<th>Listen Item ID</th>
+			<th>Music ID</th>
+			<th>Music Name</th>
+			<th>Operation</th>
+		</tr>
+	</thread>
+	<tbody id="show_items">
+	  <% if order.status == "UnAdded" %>
+		   <%= render order.items %>
+	  <% else %>
+	  	<% order.items.each do |item| %>
+	  		<tr class="active">
+				<td> <%= link_to "#{item.id}", item %> </td>
+				<td> <%= item.product_id %> </td>
+				<td> <%= item.product_name %> </td>
+				<% if item.commentable == true %>
+					<td > <%= link_to "comment on this song", item,
+						class: "btn btn-default btn-sm" %> </td>
+				<% else %>
+					<td > <%= link_to "see music detail", item, 
+						class: "btn btn-default btn-sm" %> </td>
+				<% end %>
+			</tr>
+	  	<% end %>
+	  <% end %>
+	</tbody>
+</table> 
+<div><%= button_to "delete", order, method: :delete,class: "btn btn-primary btn-sm", 
+	data: {confirm: "You sure?"}, remote: true %></div>
+</br>

@@ -1,0 +1,12 @@
+<div class="row">
+	<p> User ID: <%= @buyer.id %> </p>
+	<p> User Name: <%= @buyer.name %> </p>
+	<p> Email: <%= @buyer.email %> </p>
+	<p style="text-shadow: black 5px 3px 3px;"><%= link_to "Edit My Profile", edit_buyer_path, class:"btn btn-sm btn-default" %></p>
+</div>
+<div id="show_orders" class="row">
+	<%= render @orders %>
+</div>
+
+<div class="row"> <%= will_paginate @orders%></div>
+

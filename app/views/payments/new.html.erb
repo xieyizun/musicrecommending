@@ -1,0 +1,27 @@
+<h1> Add to my music </h1>
+<div class="row">
+	<% if create_order? %>		
+			<table class="table">
+				<caption>Song List: <%= current_order.id %> |
+					Status: <%= current_order.status %>
+				</caption>
+				<thread>
+				<tr>
+					<th>Music Item ID</th>
+					<th>Music ID</th>
+					<th>Music Name</th>
+					
+					<% if current_order.status == "UnAdded" %>
+						<th>Operation</th>
+					<% end %>
+				</tr>
+				</thread>
+				<tbody id="show_items">
+					<%= render current_order.items %>
+				</tbody>
+			</table> 
+			<%= form_for(:payments, url:payments_path) do |f| %>
+				<%= f.submit "Save to my music", class:"btn btn-large btn-primary",data: {confirm: "Are you sure?"} %>
+			<% end %>
+	<% end %>
+</div>

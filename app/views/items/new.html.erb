@@ -1,0 +1,8 @@
+<h1>New LineItem</h1>
+	<div class="row">
+		<%= form_for(@item) do |f| %>
+			<p> Item: <%= @item_number %> </p>
+			<%= f.submit "Create a item", class:"btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+

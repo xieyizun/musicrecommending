@@ -1,0 +1,30 @@
+<body>
+	<h1>Listing Product</h1>
+	<table>
+		<% @products.each do |product| %>	
+			<tr>
+				<td>
+					<%= image_tag(product.image_url, :alt => "product") %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+				</td>
+			</tr>
+			<tr>
+				<td> 
+					productID: <%= product.id %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Description: <%= product.description %> 
+				</td>		
+			</tr>
+			<tr>
+				<td>price: <%= product.price %></td>
+			</tr>
+		<% end %>
+	</table>
+</body>

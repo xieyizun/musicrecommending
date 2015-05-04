@@ -1,0 +1,70 @@
+<div id="product">
+   <div class="col-sm-6 col-md-3" id="product_detail">
+ 
+	<div class="thumbnail">
+		<%= image_tag(@product.image_url, alt: 'product') %>
+	</div>
+	<div class="caption">
+		<p> ID: <%= @product.id %> </p>
+		<p> Name: <%= @product.title %> </p>
+		<p> Singer: <%= @product.description %> </p>
+		<p>
+		<% if sign_in? %>
+		    <% if create_order? or is_commented_song @product.id %>
+				<p> <%= button_to "Enjoy this song", items_path,class: "btn btn-primary btn-sm" %> </p>
+			<% else %>
+				<p> Listen: <%= button_to "Create a song list first", orders_path, class: "btn btn-primary btn-sm" %> </p>
+			<% end %>
+		<% else %>
+			<p> Listen: <%= link_to "Sign in first", signin_path, class: "btn btn-primary btn-sm"%> </p>
+		<% end %>
+	    </p>
+	</div>
+   </div>
+   <% if sign_in? %>
+	<span>
+			<% if @is_k_method == true %>
+				<h2>Those who has listened this song has listened these as follow</h2>
+				<% @goodsongs.each do |goodsong| %>
+						<p>
+							<%= link_to goodsong.id, goodsong %> 
+							<%= link_to image_tag(goodsong.image_url, alt: 'music', size: '20x20'), product_path(goodsong.id) %>
+							
+							  <%= goodsong.title %>
+						</p>
+
+				<% end %>
+			<% else %>
+				<h4>Following music are similar music to this one</h4>
+				<% @goodsongs.each do |goodsong| %>
+						<p>
+							<%= link_to goodsong.id, goodsong %> 
+							<%= link_to image_tag(goodsong.image_url, alt: 'music', size: '20x20'), product_path(goodsong.id) %>
+							<%= goodsong.title %>
+						</p>
+				<% end %>
+			<% end %>
+			<div>
+				
+			</div>
+	</span>
+   <% end %>
+</div>
+
+<div class="row">
+  <table class="table">
+	  <caption >Comments</caption>
+	  <thread>
+		<tr>
+			<th>Comment ID</th>
+			<th>User ID</th>
+			<th>Score</th>
+	  </thread>
+	  <tbody id="show_comments">
+		   <%= render @comments %>
+
+	  </tbody>
+	 
+  </table> 
+</div>
+<div class="row"> <%= will_paginate @comments%></div>

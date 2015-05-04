@@ -1,0 +1,3 @@
+<h1> Export Comments to excel </h1>
+<%= link_to "Export Comments To Excel", comments_path(:format => 'xls'), class: "btn btn-primary btn-sm", data: {confirm: "Are you sure?"} %>
+<%= link_to "CSV", comments_path(:format => 'csv'), class: "btn btn-primary btn-sm", data: {confirm: "Are you sure?"} %>

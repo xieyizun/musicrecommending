@@ -1,0 +1,47 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div>
+      <ul class="nav navbar-nav pull-left">
+          <li> <%= link_to "Music World", root_url, id: "logo" %> </li>
+      </ul>
+    </div>
+    <div>
+      <ul class="nav navbar-nav pull-right">
+          <li><%= link_to 'Home', root_url %></li>
+          <% if sign_in? %>
+             <li id="fat-menu" class="dropdown">
+                <a href='#' class="dropdown-toggle" data-toggle="dropdown" style="color: rgb(255,255,255)">
+                  Account <b class="caret"></b>
+                </a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "Profile", current_buyer %></li>
+                    <li><%= link_to "Settings", edit_buyer_path(current_buyer) %></li>
+                    <li><%= link_to "Sign_out", signout_path, method: "delete" %></li>
+                  </ul>
+             </li>
+             <li id="fat-menu" class="dropdown">
+                <a href='#' class="dropdown-toggle" data-toggle="dropdown" style="color: rgb(255,255,255)">
+                  Local Music <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "My Music", buyer_path(current_buyer) %></li>
+                  <% if create_order? %>
+                    <li><%= link_to "Adding Music", current_order %></li>
+                  <% end %>
+                </ul>
+            </li> 
+          <% else %>
+            <li id="fat-menu" class="dropdown">
+                <a href='#' class="dropdown-toggle" data-toggle="dropdown" style="color: rgb(255,255,255)">
+                  Account <b class="caret"></b>
+                </a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "Sign_in", signin_path %></li>
+                    <li><%= link_to "Register", signup_path %></li>
+                  </ul>
+             </li>
+          <% end %>    
+        </ul>
+      </nav>
+    </div>
+</nav>
+

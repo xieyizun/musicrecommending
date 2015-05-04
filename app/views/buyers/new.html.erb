@@ -1,0 +1,18 @@
+<h1>Register An Account</h1>
+<div class="center">
+	<%= form_for(@buyer) do |f| %>
+					<p>Name</p>
+				    <%= f.text_field :name %>
+				    <p>Email</p>
+				    <%= f.text_field :email %>
+					<p>Password</p>
+				    <%= f.password_field :password %> 
+					<p>Password Confirmation</p>
+				    <%= f.password_field :password_confirmation %> 
+				</br>
+				</br>
+					<p> <%= f.submit "Creat my account", class: "btn btn-large btn-primary" %>
+					</p>
+				<%= render 'shared/error_messages', object: f.object %>
+	<% end %>
+</div>

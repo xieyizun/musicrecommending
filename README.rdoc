@@ -1,0 +1,43 @@
+== README
+
+该网站为音乐推荐网站，其中功能包括基本的用户注册和登陆，收听歌曲，创建歌单，提交歌单，保存到本地列表，对歌曲进行评分。
+网站会根据用户评分歌曲的数据对用户进行歌曲推荐，其中包括基于用户相似度和物品相似度的推荐，实现技术包括hadoop和mapreduce算法
+优化k-近邻算法实现。
+
+网站运行：首先需要有ruby解析器和搭建rails环境，然后进入项目目录下，输入：rails s或者rails server(后面可以指定监听端口）
+项目代码目录：app存放项目源代码
+		--assets程序的相关资源
+		--controllers  MVC架构的控制器
+		--models  MVC架构的模型
+		--views   MVC架构的视图
+	        --helps   控制器帮助方法
+
+其他目录为一些项目配置，数据库相关配置目录
+
+	        
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.

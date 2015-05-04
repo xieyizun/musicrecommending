@@ -1,0 +1,8 @@
+<div class="col-sm-6 col-md-3">
+	<div class="thumbnail">
+		<%= link_to image_tag(product.image_url, alt: 'music', size: '200x200'), product_path(product.id) %>
+		<p> ID: <%= product.id %> </p>
+		<p> Name: <%= link_to product.title, product_path(product.id) %> </p>
+		<p> Singer: <%= product.description %> </p>
+	</div>
+</div>

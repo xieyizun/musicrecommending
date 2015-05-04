@@ -1,0 +1,32 @@
+<nav class="navbar navbar-default" role="navigation">
+   <div class="navbar-header">
+      <a class="navbar-brand" href="#">Music World</a>
+   </div>
+   <div>
+      <form class="navbar-form navbar-left" role="search">
+      </form>    
+   </div>
+</nav>
+
+<div>
+  <div id="home">
+  	<%= render @products %>
+  	<div> <%= will_paginate @products%> </div>
+  </div>
+<% if sign_in? %>
+  <span id="recommend">
+	<div>
+		<h2>You may like these songs</h2>
+		<div>
+			<% @goodsongs.each do |goodsong| %>
+				<p class="active">
+					<%= link_to "#{goodsong.id}", goodsong %>
+					<%= link_to image_tag(goodsong.image_url, alt: 'music', size: '20x20'), product_path(goodsong.id) %>
+					<%= goodsong.title %>
+				</p>
+			<% end %>
+		</di>
+	<div>
+  </span>
+<% end %>
+</div>

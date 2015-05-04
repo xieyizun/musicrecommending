@@ -1,0 +1,21 @@
+<div>
+	<table class="table">
+		<caption>Good Songs</caption>
+		<thread>
+			<tr>
+				<th>Music ID</th>
+				<th>Music Name</th>
+				<th>Singer</th>
+			</tr>
+		</thread>	
+		<tbody>
+			<% @goodsongs.each do |goodsong| %>
+				<tr class="active">
+					<th><%= link_to "#{goodsong.id}", goodsong %></th>
+					<th><%= goodsong.title %></th>
+					<th><%= goodsong.description %></th>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

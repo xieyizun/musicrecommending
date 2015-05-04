@@ -1,0 +1,32 @@
+<h1>Edit My Profile</h1>
+<div>
+	<p>
+		<button type="button" class="btn btn-default btn-sm" style="text-shadow: black 5px 3px 3px;">
+  			Name:
+		</button>
+		<%= current_buyer.name %> 
+	</p>
+	<p>
+		<button type="button" class="btn btn-default btn-sm" style="text-shadow: black 5px 3px 3px;">
+  			Email:
+		</button>
+		<%= current_buyer.email %>
+	</p>
+</div>
+<div>
+	<%= form_for(@buyer) do |f| %>
+					<p>New Name</p>
+				    <%= f.text_field :name %>
+				    <p>New Email</p>
+				    <%= f.text_field :email %>
+					<p>Password</p>
+				    <%= f.password_field :password %> 
+					<p>Password Confirmation</p>
+				    <%= f.password_field :password_confirmation %> 
+				</br>
+				</br>
+					<p> <%= f.submit "Save", class: "btn btn-large btn-primary" %>
+					</p>
+				<%= render 'shared/error_messages', object: f.object %>
+	<% end %>
+</div>

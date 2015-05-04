@@ -1,0 +1,7 @@
+<h1>New Order</h1>
+	<div class="row">
+		<%= form_for(@order) do |f| %>
+			<p> Order: <%= @order_number %> </p>
+			<%= f.submit "Create a order", class:"btn btn-large btn-primary" %>
+		<% end %>
+	</div>

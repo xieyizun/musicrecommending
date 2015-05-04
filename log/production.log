@@ -1,0 +1,1 @@
+E, [2014-12-27T21:51:19.799798 #7711] ERROR -- : SQLite3::SQLException: no such table: comments: SELECT "comments".* FROM "comments"
